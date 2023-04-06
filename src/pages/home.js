@@ -31,9 +31,6 @@ function Home(){
         autoIntervalRef.current = setInterval(() => {
           setValue((prevValue) => {
             const newValue = (prevValue + 0.01) % 100;
-            if (newValue === 0) {
-              setIsAuto(false);
-            }
             return newValue;
           });
         }, AUTO_INTERVAL_MS);
@@ -124,14 +121,13 @@ function Home(){
             onChange={handleSliderChange}
             onMouseUp={intervalOn}
             onMouseDown={intervalOff}
-            onDragStart={handleSliderDragStart}
-            onDragEnd={handleSliderDragEnd}
+
             disabled={!isAuto}
             className="slider"
             style={{
               width: "50%",
               position: "relative",
-              marginTop: "650px",
+              marginTop: "550px",
               color: "#443538",
             }} // 修正: スライダーのスタイルを調整
           />

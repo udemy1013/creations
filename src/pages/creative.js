@@ -21,17 +21,17 @@ function Home() {
         <div
           style={{
             position: "absolute",
-            height: "800px",
+            height: "900px",
             width: "80%",
             overflow: "hidden",
-            top: "10%",
+            top: "-10%",
             transform: " transform: translateY(-50%)",
           }}
         >
           <div
             className="absolute"
             style={{
-              top: `calc(${top}% + ${value}% - 90% )`,
+              top: `calc(${top}% + ${value}% - 80% )`,
               left: 0,
               right: 0,
               marginLeft: "auto",
@@ -69,7 +69,7 @@ function Home() {
           style={{
             position: "absolute",
             right: "10%",
-            top: "50%",
+            top: "30%",
             transform: "translateY(-50%)",
             color: "#443538",
             height: "350px",

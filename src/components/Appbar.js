@@ -35,7 +35,7 @@ function Appbar() {
   };
 
   return (
-    <AppBar position="static" style={{ backgroundColor: "transparent", boxShadow: '0px 0px 0px 0px', position: "relative", top: "100px", zIndex: 50}}>
+    <AppBar position="static" style={{ backgroundColor: "transparent", boxShadow: '0px 0px 0px 0px', marginTop: "100px", zIndex: 50}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img src={toplogo} alt="logo"/>

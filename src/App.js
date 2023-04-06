@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from "./pages/home.js";
 import AppBar from "./components/Appbar.js";
 import Creative from "./pages/creative.js";
+import Contact from "./pages/contact";
 
 
 
@@ -57,14 +58,6 @@ function App() {
 
 
 
-
-function Contact(){
-  return(
-    <div className="App-header">
-      <h1>Contact</h1>
-    </div>
-  )
-}
 
 function Company(){
   return(
