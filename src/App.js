@@ -1,18 +1,22 @@
 
 import "./App.css";
 import "./components/Appbar.js";
-import React  from "react";
+import {React, useEffect}  from "react";
 import { PageTransition } from '@steveeeie/react-page-transition';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
+import { BrowserRouter, Route, Switch, useLocation } from 'react-router-dom';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import Home from "./pages/home.js";
 import AppBar from "./components/Appbar.js";
 import Creative from "./pages/creative.js";
 import Contact from "./pages/contact";
-
+import Company from "./pages/company.js";
+import Tax3 from "./pages/portfolio/tax3.js";
+import Bubbic from "./pages/portfolio/bubbic.js";
+import HomeMobile from "./pages/homeMobile.js";
 
 
 function App() {
+    const isMobile = useMediaQuery('(max-width:600px)');
 
   return (
     <BrowserRouter>
@@ -22,16 +26,16 @@ function App() {
           return (
         
             <PageTransition
-              preset="moveToLeftFromRight"
+              preset="scaleUpScaleUp"
               transitionKey={location.pathname}
             >
      
       <Switch location={location}>
         <Route exact path="/">
-          <Home />
+        {isMobile ? <HomeMobile /> : <Home />}
         </Route>
         <Route path="/home">
-          <Home />
+        {isMobile ? <HomeMobile /> : <Home />}
         </Route>
         <Route path="/creative">
           <Creative />
@@ -41,6 +45,12 @@ function App() {
         </Route>
         <Route path="/company">
           <Company />
+        </Route>
+        <Route path="/portfolio/tax3">
+          <Tax3 />
+        </Route>
+        <Route path="/portfolio/bubbic">
+          <Bubbic />
         </Route>
         <Route>
           <NotFound />
@@ -59,13 +69,6 @@ function App() {
 
 
 
-function Company(){
-  return(
-    <div className="App-header">
-      <h1>Company</h1>
-    </div>
-  )
-}
 
 function NotFound() {
   return <h2>Not Found Page</h2>;

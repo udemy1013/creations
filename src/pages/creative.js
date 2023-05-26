@@ -7,13 +7,13 @@ const AUTO_INTERVAL_MS = 1;
 function Home() {
   const [value, setValue] = useState(100);
   const [isAuto, setIsAuto] = useState(true);
-  const [clicked, setClicked] = useState(false);
   const [top, setTop] = useState(80);
-  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const handleSliderChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  
 
   return (
     <div>
@@ -23,7 +23,6 @@ function Home() {
             position: "absolute",
             height: "900px",
             width: "80%",
-            overflow: "hidden",
             top: "-10%",
             transform: " transform: translateY(-50%)",
           }}

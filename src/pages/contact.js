@@ -1,6 +1,7 @@
 import React from "react";
-import { Grid, Typography, Button } from "@mui/material";
+import { Grid, Typography, Button, Box } from "@mui/material";
 import phone from "../components/images/phone.png";
+import BackButton from "../components/BackButton";
 
 function contact() {
   return (
@@ -17,7 +18,7 @@ function contact() {
               fontSize: "64px",
               fontWeight: "600",
               color: "#443538",
-              fontFamily: "Kanit",
+              fontFamily: "Lexend",
             }}
           >
             contact
@@ -35,12 +36,13 @@ function contact() {
       </Grid>
       <Grid container sx={{ justifyContent: "center" }} spacing={3}>
         <Grid item>
-          <Button variant="outlined" sx={{ mt: 5,  borderColor: "red !important", color: "red !important" }}>
-            back
-          </Button>
+          <Box  sx={{ textTransform: "uppercase !important" }}>
+            <BackButton />
+          </Box>
+          
         </Grid>
         <Grid item>
-          <Button variant="outlined" sx={{ mt: 5, textTransform: "uppercase !important" }}>
+          <Button variant="outlined" sx={{ mt: 3, textTransform: "uppercase !important" }}>
             GO LINE
           </Button>
         </Grid>
