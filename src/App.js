@@ -12,7 +12,7 @@ import Contact from "./pages/contact";
 import Company from "./pages/company.js";
 import Tax3 from "./pages/portfolio/tax3.js";
 import Bubbic from "./pages/portfolio/bubbic.js";
-import HomeMobile from "./pages/homeMobile.js";
+import HomeMobile from "./pages/HomeMobile.js";
 
 
 function App() {

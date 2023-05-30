@@ -5,6 +5,7 @@ html,
 body,
 #root {
   height: 100%;
+  overflow: hidden;
 }
 
 
@@ -22,6 +23,8 @@ img {max-width:100%;}
 #appbar-mobile{
   display: none;
 }
+
+
 
 .App {
   text-align: center;
@@ -80,6 +83,18 @@ img {max-width:100%;}
   opacity: 100% !important;
 }
 
+.nospace{
+  white-space: nowrap;
+}
+
+.desktop{
+  display: block;
+}
+
+.mobile{
+  display: none;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -121,7 +136,7 @@ img {max-width:100%;}
 }
 
 #company-mark{
-  right: -35px;
+  right: 0px;
   top: 0;
   z-index: 0;
 }
@@ -151,11 +166,49 @@ img {max-width:100%;}
   }
 }
 
-@media screen and (max-width: 600px) {
-  body{
-    overflow-x: visible;
-    overflow-y: visible;
+@media screen and (max-width: 1199px) {
+  .title{
+    justify-content: center !important;
+    font-size: 48px !important;
   }
+
+  .div-center-md{
+    text-align: center !important;
+  }
+
+  .mobile{
+    display: block;
+  }
+
+  .desktop{
+    display: none;
+  }
+
+  .pr-16-md{
+    padding-right: 16px;
+  }
+
+  .mobile-pl-40{
+    padding-right: 40px;
+  }
+
+  .descrption-mobile{
+    max-width: 300px;
+    margin: 20px auto;
+  }
+}
+
+@media screen and (max-width: 899px){
+  
+}
+
+@media screen and (max-width: 600px) {
+  html,
+body,
+#root {
+  height: 100%;
+  overflow: visible;
+}
   #appbar-desktop{
     display: none;
   }

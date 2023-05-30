@@ -7,19 +7,7 @@ import shadowImg from "../components/images/shadow.png";
 import { Link } from "react-router-dom";
 
 const HomeMobile = () => {
-    useEffect(() => {
-        const removeOverflowHidden = (className) => {
-          const elements = document.getElementsByClassName(className);
-    
-          for (let i = 0; i < elements.length; i++) {
-            elements[i].style.overflow = 'visible';
-          }
-        };
-    
-        removeOverflowHidden('sc-beqWaB hPGFqH');
-        removeOverflowHidden('sc-gueYoa xAJSw');
-      }, []);
-    const portfolios = ["tax3", "bubbic"];
+       const portfolios = ["tax3", "bubbic"];
     const images = [imgSample, imgSample1, imgSample2, imgSample3];
   return (
         <div className="slider-container">

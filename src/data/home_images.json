@@ -1,0 +1,20 @@
+{
+    "projects": [
+        {
+            "name": "tax3",
+            "image": "main_tax3.png"
+        },
+        {
+            "name": "bubbic",
+            "image": "main_bubbic.png"
+        },
+        {
+            "name": "nasty",
+            "image": "main_nasty.png"
+        },
+        {
+            "name": "kusomegane",
+            "image": "main_kusomegane.png"
+        }
+    ]
+}

@@ -1,19 +1,39 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Slider, Button, Grid } from "@mui/material";
-import { images } from "../data/images";
+import { Link } from "react-router-dom/cjs/react-router-dom";
+import { images } from "../data/creative_images";
 
-const AUTO_INTERVAL_MS = 1;
-
-function Home() {
+function Creative() {
   const [value, setValue] = useState(100);
-  const [isAuto, setIsAuto] = useState(true);
+  const [targetValue, setTargetValue] = useState(100);
   const [top, setTop] = useState(80);
 
-  const handleSliderChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  // ポートフォリオページ用の名前
+  const portfolio = ["tax3", "bubbic"]
 
-  
+  useEffect(() => {
+    const handleWheel = (e) => {
+      setTargetValue((targetValue) => targetValue - e.deltaY / 30);
+    };
+
+    window.addEventListener("wheel", handleWheel);
+
+    return () => {
+      window.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
+
+  // Animation effect
+  useEffect(() => {
+    const animate = () => {
+      setValue((value) => value + (targetValue - value) * 0.5);
+      requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => cancelAnimationFrame(animate);
+  }, [targetValue]);
 
   return (
     <div>
@@ -41,14 +61,16 @@ function Home() {
             <Grid container spacing={2}>
               {images.map((src, index) => (
                 <Grid item xs={12} md={6} lg={3} key={index}>
-                  <img
-                    className="dropshadow"
-                    src={src}
-                    alt={`Slide ${index + 1}`}
-                    style={{
-                      width: "90%",
-                    }}
-                  />
+                  <Link to={`/portfolio/${portfolio[index]}`}>
+                    <img
+                      className="dropshadow"
+                      src={src}
+                      alt={`Slide ${index + 1}`}
+                      style={{
+                        width: "90%",
+                      }}
+                    />
+                  </Link>
                 </Grid>
               ))}
             </Grid>
@@ -62,8 +84,10 @@ function Home() {
           }}
           orientation="vertical"
           value={value}
-          onChange={handleSliderChange}
-          disabled={!isAuto}
+          onChange={(e, newValue) => {
+            setValue(newValue);
+            setTargetValue(newValue); // Add this line
+          }}
           className="slider"
           style={{
             position: "absolute",
@@ -72,11 +96,11 @@ function Home() {
             transform: "translateY(-50%)",
             color: "#443538",
             height: "350px",
-          }} // 修正: スライダーのスタイルを調整
+          }}
         />
       </header>
     </div>
   );
 }
 
-export default Home;
+export default Creative;

@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Slider, Button } from "@mui/material";
 
-import imgSample from "../components/images/main_tax3.png";
-import imgSample1 from "../components/images/main_bubbic.png";
-import imgSample2 from "../components/images/main_nasty.png";
-import imgSample3 from "../components/images/main_kusomegane.png";
+import imageData from '../data/home_images.json';
+
 import shadowImg from "../components/images/shadow.png";
 import { Link } from "react-router-dom";
 
@@ -83,14 +81,14 @@ function Home() {
     clearInterval(autoIntervalRef.current);
   };
 
-  const images = [imgSample, imgSample1, imgSample2, imgSample3];
+  const images = imageData.projects.map(project => require(`../components/images/${project.image}`));
   return (
     <div>
       <header className="App-header">
       <div
         className="absolute"
         style={{
-  left: `calc(${left}% - ${(value / 100) * (images.length - 1) * (550 + 16 * 2)}px)`, // 修正: leftとvalueの計算方法を変更
+        left: `calc(${left}% - ${(value / 100) * (images.length - 1) * (550 + 16 * 2)}px)`, // 修正: leftとvalueの計算方法を変更
 }}
       >
           <div className="slider-container">
