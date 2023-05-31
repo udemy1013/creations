@@ -2,12 +2,13 @@ import {React} from 'react'
 import imageData from '../data/home_images.json';
 import shadowImg from "../components/images/shadow.png";
 import { Link } from "react-router-dom";
+import { Box } from '@mui/material';
 
 function Homemobile  () {
-  const portfolios = ["tax3", "bubbic", "nasty", "kusomegane"];
+  const portfolios = ["tax3", "bubbic", "nasty", "kusomegane", "ifc", "luchia", "wasshoi"];
     const images = imageData.projects.map(project => require(`../components/images/${project.image}`));
   return (
-        <div className="slider-container">
+        <Box sx={{marginBottom: "3rem"}} className="slider-container">
             <ul
               className="slider-images"
               style={{
@@ -32,7 +33,7 @@ function Homemobile  () {
                 </li>
               ))}
             </ul>
-          </div>
+          </Box>
   )
 }
 
