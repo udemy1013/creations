@@ -9,9 +9,10 @@ const BackButton = () => {
         <Button
             variant="outlined"
             sx={{
-              mt: 3,
               borderColor: "red !important",
               color: "red !important",
+              minWidth: {xs: 200, md: 150},
+              mb: {xs: 5, md: 0}
             }}
             
             className="moveToLeftFromRight"

@@ -1,67 +1,24 @@
-import React, {useEffect} from "react";
-import { Grid, Typography, Button, Box, Link } from "@mui/material";
+import React from "react";
+import { Grid, Typography, Button, Box, Link, useTheme, useMediaQuery } from "@mui/material";
 import phone from "../components/images/phone.png";
 import BackButton from "../components/BackButton";
 import useLocationChange from '../components/useLocationChange.ts'
 
+
+
 function Contact() {
 
-  useEffect(() => {
-    const htmlElement = document.documentElement;
-    const bodyElement = document.body;
-    const rootElement = document.getElementById("root");
-
-    const prevHtmlOverflow = htmlElement.style.overflow;
-    const prevBodyOverflow = bodyElement.style.overflow;
-    const prevRootOverflow = rootElement ? rootElement.style.overflow : null;
-
-    
-    const updateOverflow = () => {
-      const overflowValue = window.innerWidth <= 1200 ? "visible" : "hidden";
-      htmlElement.style.overflow = overflowValue;
-      bodyElement.style.overflow = overflowValue;
-      if (rootElement) {
-        rootElement.style.overflow = overflowValue;
-      }
-    };
-
-    updateOverflow(); // 初期設定
-    window.addEventListener("resize", updateOverflow); // ウィンドウサイズが変わったときに更新
-
-    // ComponentWillUnmountの代わりとして
-    return () => {
-      htmlElement.style.overflow = prevHtmlOverflow;
-      bodyElement.style.overflow = prevBodyOverflow;
-      if (rootElement) {
-        rootElement.style.overflow = prevRootOverflow;
-      }
-      window.removeEventListener("resize", updateOverflow); // リスナーの削除
-    };
-  }, []); // 空配列を依存性リストとして渡すことで一度だけ実行する
-
-  useLocationChange((location) => {
-    const removeOverflowHidden = (className) => {
-        const elements = document.getElementsByClassName(className);
-  
-        for (let i = 0; i < elements.length; i++) {
-          elements[i].style.overflow = 'visible';
-        }
-      };
-  
-      removeOverflowHidden('sc-beqWaB hPGFqH');
-      removeOverflowHidden('sc-gueYoa xAJSw');
-  })
-
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <div>
       <Grid
         container
         spacing={2}
-        sx={{ maxWidth: "1536px", margin: "auto", alignItems: "flex-end", padding: "0px 24px" }}
-        className="div-center-md"
+        sx={{ maxWidth: "1536px", margin: "auto", alignItems: "flex-end", padding: "0px 24px", width: "100%" }}
       >
-        <Grid item md={6} xs={12} className="pr-16-md">
+        <Grid item md={6} xs={12} className="pr-16-md center-sm">
           <Typography
             variant="h1"
             sx={{
@@ -74,18 +31,18 @@ function Contact() {
           >
             contact
           </Typography>
-          <p style={{ fontSize: "16px", lineHeight: "31px" }} className="desktop">
+          <p style={{ fontSize: "16px", lineHeight: "31px" }} className="display-md">
             依頼に関しまして、公式LINEにてご相談から受け賜っております。
             <br /> 友達追加していただき、トークからご相談内容をお送りください。
             <br />
             1~2営業日で担当者からご連絡いたします。
           </p>
         </Grid>
-        <Grid item md={6} xs={12} sx={{ textAlign: "right" }} className="div-center-md">
-          <img src={phone} width={"350px"} />
+        <Grid item md={6} xs={12} sx={{ textAlign: "right" }} className="center-sm">
+          <img id="phone" src={phone} width={350} alt="phone" />
         </Grid>
       </Grid>
-      <div className="mobile"> 
+      <div className="display-sm"> 
       <p style={{ fontSize: "16px", lineHeight: "31px", textAlign: "left"}} className="descrption-mobile">
             依頼に関しまして、公式LINEにてご相談から受け賜っております。
             <br /> 友達追加していただき、トークからご相談内容をお送りください。
@@ -94,16 +51,16 @@ function Contact() {
           </p>
       </div>
       
-      <Grid container sx={{ justifyContent: "center",  }} spacing={3}>
-        <Grid item>
-          <Box  sx={{ textTransform: "uppercase !important" }}>
+      <Grid container sx={{mt:3, mb: 5, flexDirection:{md:"row",sm:"column-reverse", xs:"column-reverse"}}} spacing={3}>
+        <Grid item md={6} xs={12}>
+          <Box  sx={{ textTransform: "uppercase !important", textAlign: {md:"end", xs:"center"} }}>
             <BackButton />
           </Box>
           
         </Grid>
-        <Grid item>
+        <Grid item sx={{ textAlign: {md:"start", xs:"center"}}} md={6} xs={12}>
           <Link href="https://lin.ee/J6EdD0f"> 
-            <Button variant="outlined" sx={{ mt: 3, textTransform: "uppercase !important" }}>
+            <Button variant="outlined" sx={{ textTransform: "uppercase !important", minWidth: {xs:200, md:150} }}>
               GO LINE
             </Button>
           </Link>
