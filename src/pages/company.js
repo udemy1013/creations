@@ -62,7 +62,7 @@ const Company = () => {
             color: "#443538",
             fontFamily: "Lexend",
             mb: 1,
-            marginRight: {xs:0, md:40}
+            marginRight: {xs:0, md:"40px"}
           }}
           className="title"
         >

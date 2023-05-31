@@ -1,14 +1,17 @@
-import { Divider, Box, Typography, Container, Link, Grid } from "@mui/material";
-import { React, useEffect } from "react";
-import bubbicImg1 from "../../components/images/bubbic_1.png";
-import bubbicImg2 from "../../components/images/bubbic_2.png";
-import bubbicImg3 from "../../components/images/bubbic_3.png";
-import bubbicImg4 from "../../components/images/bubbic_4.png";
-import bubbiclogo from "../../components/images/bubbic_logo.png";
-import BackButton from "../../components/BackButton";
-import useLocationChange from "../../components/useLocationChange.ts";
+import { Divider ,Box, Typography, Container, Link } from '@mui/material'
+import {React, useEffect} from 'react'
+import luchiaImg1 from "../../components/images/luchia_1.png"
+import luchiaImg2 from "../../components/images/luchia_2.png"
+import luchiaImg3 from "../../components/images/luchia_3.png"
+import luchiaImg4 from "../../components/images/luchia_4.png"
 
-const Bubbic = () => {
+import BackButton from '../../components/BackButton'
+import useLocationChange from '../../components/useLocationChange.ts'
+
+
+
+const Luchia = () => {
+
   useEffect(() => {
     const htmlElement = document.documentElement;
     const bodyElement = document.body;
@@ -33,7 +36,7 @@ const Bubbic = () => {
       }
     };
   }, []); // 空配列を依存性リストとして渡すことで一度だけ実行する
-  
+
     useLocationChange((location) => {
         const removeOverflowHidden = (className) => {
             const elements = document.getElementsByClassName(className);
@@ -47,19 +50,10 @@ const Bubbic = () => {
           removeOverflowHidden('sc-gueYoa xAJSw');
       })
   return (
-    <Container
-      sx={{
-        maxWidth: "820px !important",
-        margin: "auto",
-        alignItems: "flex-end",
-        padding: "24px",
-        letterSpacing: "0.18em",
-        mt: 5,
-        pr: "0 !important",
-        pl: "0 !important",
-      }}
-    >
-     <div
+    <Container 
+    sx={{ maxWidth: "820px !important", margin: "auto", alignItems: "flex-end", letterSpacing: "0.18em", mt: 5, p:"24px" , pr:"0 !important", pl:"0 !important" }}>
+        
+        <div
   style={{
     display: "flex",
     justifyContent: "space-between",
@@ -68,7 +62,7 @@ const Bubbic = () => {
   }}
 >
   <Link
-    href="tax3"
+    href="ifc"
     sx={{
       fontFamily: "Kanit",
       fontWeight: 600,
@@ -85,10 +79,10 @@ const Bubbic = () => {
     color="initial"
     sx={{ fontFamily: "Inter", fontWeight: 600,  fontSize: { xs: "12px", md: 16 }, textAlign: {xs:"center"} }}
   >
-    オリジナルシャンパンブランド<br/>Bubbic
+    LUCHIA collection
   </Typography>
   <Link
-    href="nasty"
+    href="wasshoi"
     sx={{
       fontFamily: "Kanit",
       fontWeight: 600,
@@ -102,16 +96,14 @@ const Bubbic = () => {
   </Link>
 </div>
 
-      <Box sx={{ textAlign: "center" }}>
-        <Box component="img" src={bubbicImg1} />
-        <Box sx={{ mt: 2 }} component="img" src={bubbicImg2} />
-        <Box sx={{ mt: 2 }} component="img" src={bubbicImg3} />
-        <Box sx={{ mt: 2 }} component="img" src={bubbicImg4} />
-        <Box sx={{ mt: 2 }} component="img" src={bubbiclogo} />
-      </Box>
-      <Divider sx={{ mt: 5, mb: 5, backgroundColor: "black" }} />
-      
-      <Box sx={{margin: {xs: "0 20px"}}}>        
+        <Box sx={{textAlign: "center"}}>
+            <Box component="img" src={luchiaImg1}/>
+            <Box sx={{mt: 2}} component="img" src={luchiaImg2}/>
+            <Box sx={{mt: 2}} component="img" src={luchiaImg3}/>
+            <Box sx={{mt: 2}} component="img" src={luchiaImg4}/>
+        </Box>
+        <Divider sx={{mt: 5, mb: 5, backgroundColor: "black"}}/>
+        <Box sx={{margin: {xs: "0 20px"}}}>        
       <Typography
         variant="p"
         color="initial"
@@ -122,7 +114,7 @@ const Bubbic = () => {
           fontSize: "14px",
         }}
       >
-        オリジナルシャンパンブランド/Bubbic
+       LUCHIA collection
       </Typography>
       <Typography
         variant="p"
@@ -133,41 +125,20 @@ const Bubbic = () => {
           fontWeight: 400,
           fontSize: "14px",
         }}
-      >
+      ><br />
+        DESIGN CONSULTING
+        <br /><br />
+        ・product design
         <br />
-        <br />
-        ・Logo design
-        <br />
-        ・Landing page design
-        <br />
-        ・label design
-        <br />
-        ・Instagram feed design
-        <br />
-        ・LINE@ design
+        ・logo design
       </Typography>
-      <Typography
-        variant="p"
-        color="initial"
-        sx={{
-          display: "block",
-          fontFamily: "Inter",
-          fontWeight: 400,
-          fontSize: "14px",
-        }}
-      >
-        <br />
-        Link
-      </Typography>
-      <Link href="https://bubbic.com/" sx={{ color: "gray" }}>
-        https://bubbic.com/
-      </Link>
         <Box sx={{mt: 3, textAlign: "center"}}>
             <BackButton/>
         </Box>
         </Box>
     </Container>
-  );
-};
+    
+  )
+}
 
-export default Bubbic;
+export default Luchia

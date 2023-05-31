@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Slider, Button, Grid } from "@mui/material";
 import { Link } from "react-router-dom/cjs/react-router-dom";
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { images } from "../data/creative_images";
 
 function Creative() {
@@ -8,8 +10,10 @@ function Creative() {
   const [targetValue, setTargetValue] = useState(100);
   const [top, setTop] = useState(80);
 
+  
+
   // ポートフォリオページ用の名前
-  const portfolio = ["tax3", "bubbic"]
+  const portfolio = ["tax3", "bubbic", "nasty", "kusomegane", "ifc", "luchia", "wasshoi"]
 
   useEffect(() => {
     const handleWheel = (e) => {
@@ -22,18 +26,6 @@ function Creative() {
       window.removeEventListener("wheel", handleWheel);
     };
   }, []);
-
-  // Animation effect
-  useEffect(() => {
-    const animate = () => {
-      setValue((value) => value + (targetValue - value) * 0.5);
-      requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    return () => cancelAnimationFrame(animate);
-  }, [targetValue]);
 
   return (
     <div>

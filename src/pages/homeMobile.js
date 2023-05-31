@@ -1,14 +1,11 @@
-import {React, useEffect} from 'react'
-import imgSample from "../components/images/main_tax3.png";
-import imgSample1 from "../components/images/main_bubbic.png";
-import imgSample2 from "../components/images/main_tax3.png";
-import imgSample3 from "../components/images/main_bubbic.png";
+import {React} from 'react'
+import imageData from '../data/home_images.json';
 import shadowImg from "../components/images/shadow.png";
 import { Link } from "react-router-dom";
 
-const HomeMobile = () => {
-       const portfolios = ["tax3", "bubbic"];
-    const images = [imgSample, imgSample1, imgSample2, imgSample3];
+function Homemobile  () {
+  const portfolios = ["tax3", "bubbic", "nasty", "kusomegane"];
+    const images = imageData.projects.map(project => require(`../components/images/${project.image}`));
   return (
         <div className="slider-container">
             <ul
@@ -28,6 +25,7 @@ const HomeMobile = () => {
                     className="dropshadow"
                     src={src}
                     alt={`Slide ${index + 1}`}
+                    width={"100%"}
                   />
                   <img alt={"shadow"} className="shadowImg" src={shadowImg} />
                   </Link>
@@ -38,4 +36,4 @@ const HomeMobile = () => {
   )
 }
 
-export default HomeMobile
+export default Homemobile

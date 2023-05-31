@@ -53,10 +53,38 @@ const Tax3 = () => {
   return (
     <Container 
     sx={{ maxWidth: "820px !important", margin: "auto", alignItems: "flex-end", letterSpacing: "0.18em", mt: 5, p:"24px" , pr:"0 !important", pl:"0 !important" }}>
-        <Typography variant="p" color="initial" sx={{ fontFamily: "Inter", fontWeight: 600}}>暗号資産専門税理士サービス/TAX3.0</Typography>
-        <Link href="bubbic" sx={{float: "right",fontFamily: "Kanit", fontWeight: 600, textDecoration: "none", color: "#333333"}}>Next {">"} </Link>
-        {/* <Link sx={{float: "right",fontFamily: "Kanit", fontWeight: 600, mr: 3, textDecoration: "none", color: "#333333"}}> {"<"} Prev</Link> */}
-        
+      <div
+  style={{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: "1.5rem"
+  }}
+>
+  <Typography
+    variant="p"
+    color="initial"
+    sx={{
+      fontFamily: "Inter",
+      fontWeight: 600,
+      fontSize: { xs: "12px", md: 16 },
+    }}
+  >
+    暗号資産専門税理士サービス/TAX3.0
+  </Typography>
+  <Link
+    href="bubbic"
+    sx={{
+      fontFamily: "Kanit",
+      fontWeight: 600,
+      textDecoration: "none",
+      color: "#333333",
+      fontSize: { xs: "12px", md: 16 },
+    }}
+  >
+    Next {">"}
+  </Link>
+</div>
         <Box sx={{textAlign: "center"}}>
             <Box component="img" src={tax3Img1}/>
             <Box sx={{mt: 2}} component="img" src={tax3Img2}/>
@@ -66,14 +94,17 @@ const Tax3 = () => {
             <Box sx={{mt: 2}} component="img" src={tax3logo}/>
         </Box>
         <Divider sx={{mt: 5, mb: 5, backgroundColor: "black"}}/>
+        
+        <Box sx={{margin: {xs: "0 20px"}}}>        
         <Typography variant="p" color="initial" sx={{display: "block", fontFamily: "Inter", fontWeight: 400, fontSize: "14px"}}>暗号資産専門税理士サービス/TAX3.0</Typography>
         <Typography variant="p" color="initial" sx={{display: "block", fontFamily: "Inter", fontWeight: 400, fontSize: "14px"}}><br/><br/>・Logo design<br/>
 ・Landing page design<br/>・mascot character 3D design</Typography>
         <Typography variant="p" color="initial" sx={{display: "block", fontFamily: "Inter", fontWeight: 400, fontSize: "14px"}}><br/>Link</Typography>
         <Link href="https://tax-3.jp/" sx={{color: 'gray'}}>https://tax-3.jp/</Link>
-        <div>
+        <Box sx={{mt: 3, textAlign: "center"}}>
             <BackButton/>
-        </div>
+        </Box>
+        </Box>
     </Container>
     
   )

@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Slider, Button } from "@mui/material";
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import imageData from '../data/home_images.json';
 
@@ -15,7 +17,8 @@ function Home() {
   const [left, setLeft] = useState(30);
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  const portfolios = ["tax3", "bubbic", "nasty", "kusomegane"];
+  const portfolios = ["tax3", "bubbic", "nasty", "kusomegane", "ifc", "luchia", "wasshoi"];
+
   
 
   
@@ -140,9 +143,12 @@ function Home() {
             color: "#443538",
           }} // 修正: スライダーのスタイルを調整
         />
+        <Link to="creative">
         <Button variant="outlined" sx={{ mt: 5 }}>
           more
         </Button>
+        </Link>
+       
       </header>
     </div>
   );
