@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 
 // ※ React Router v6
-import { Location, useLocation } from 'react-router-dom'
+import {  useLocation } from 'react-router-dom'
 
 const useLocationChange = (callback: (location: Location) => void) => {
   const refCallback = useRef<undefined | ((location: Location) => void)>()

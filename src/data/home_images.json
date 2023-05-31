@@ -15,6 +15,18 @@
         {
             "name": "kusomegane",
             "image": "main_kusomegane.png"
+        },
+        {
+            "name": "ifc",
+            "image": "main_ifc.png"
+        },
+        {
+            "name": "Luchia",
+            "image": "main_luchia.png"
+        },
+        {
+            "name": "Luchia",
+            "image": "main_wasshoi.png"
         }
     ]
 }

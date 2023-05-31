@@ -17,6 +17,8 @@ import toplogo_mobile from './images/creations_toplogo_mobile.svg';
 
 const pages = ['home', 'creative', 'contact', 'company'];
 
+const pagesMobile = ['home', 'contact', 'company'];
+
 function Appbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -24,16 +26,9 @@ function Appbar() {
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
   };
 
   return (
@@ -56,30 +51,6 @@ function Appbar() {
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none'},
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" sx={{fontFamily: "Kanit"}}>{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } , justifyContent: "flex-end"}}>
             {pages.map((page) => (
@@ -140,29 +111,12 @@ function Appbar() {
                 display: { xs: 'block', md: 'none'},
               }}
             >
-              {pages.map((page) => (
+              {pagesMobile.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Link to={"/" +page} textAlign="center" style={{fontFamily: "Kanit", textDecoration: 'none !important', color: "#333333" }}>{page}</Link>
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } , justifyContent: "flex-end"}}>
-            {pages.map((page) => (
-              <Link
-                key={page}
-                to={"/" +page}
-                sx={{ textDecoration: 'none !important' }}
-                >
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block', color: '#433639',  fontFamily: "Kanit" , fontWeight: 300, textTransform: "lowercase", fontSize: "16px",  textDecoration: 'none !important'}}
-              >
-                {page}
-              </Button>
-              </Link>
-            ))}
           </Box>
         </Toolbar>
       </Container>
